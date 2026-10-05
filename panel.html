@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crocanti Chicken Perú - Panel de Administración</title>
+  <!-- Estilo exclusivo independiente -->
+  <link rel="stylesheet" href="CSS/panel.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h1>🍗 Crocanti Chicken</h1>
+    </div>
+    <nav>
+      <a href="index.html">Menú</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="pedido.html">Pedido para Recojo</a>
+      <a href="consulta.html">Mis Pedidos</a>
+      <a href="panel.html" class="active btn-nav" style="background-color: #2a9d8f;">⚙️ Panel Admin</a>
+      <a href="contacto.html">Contacto</a>
+      <button id="btn-logout" class="btn-logout">Cerrar Sesión</button>
+    </nav>
+  </header>
+
+  <main class="main-container">
+    <h2>Gestión General de Pedidos (CRUD)</h2>
+    <p style="margin-bottom: 20px;">Administra y cambia el estado de los pedidos recepcionados en Neon DB:</p>
+
+    <div class="tabla-contenedor">
+      <table id="tabla-pedidos-admin">
+        <thead>
+          <tr>
+            <th>ID / Código</th>
+            <th>Cliente</th>
+            <th>Productos</th>
+            <th>Hora Recojo</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tbody-pedidos">
+          <tr>
+            <td colspan="6" style="text-align: center; padding: 20px;">Cargando pedidos de la base de datos...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Crocanti Chicken Perú. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Enlace modular al script de administración -->
+  <script type="module" src="JS/panel/panel.js"></script>
+</body>
+</html>

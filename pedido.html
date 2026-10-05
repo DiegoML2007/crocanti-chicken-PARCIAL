@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crocanti Chicken Perú - Pedido para Recojo</title>
+  <!-- Estilo independiente exclusivo para pedido.html -->
+  <link rel="stylesheet" href="CSS/pedido.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <svg class="svg-icono-pollo" viewBox="0 0 24 24">
+        <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,4Z"/>
+      </svg>
+      <h1>Crocanti Chicken</h1>
+    </div>
+    <nav>
+      <a href="index.html">Menú</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="pedido.html" class="active">Pedido para Recojo</a>
+      <a href="consulta.html">Mis Pedidos</a>
+      <!-- Enlace dinámico al Panel -->
+      <a href="panel.html" id="nav-panel" style="display: none; background-color: #2a9d8f;" class="btn-nav">⚙️ Panel Admin</a>
+      <a href="contacto.html">Contacto</a>
+      <button id="btn-logout" class="btn-logout">Cerrar Sesión</button>
+    </nav>
+  </header>
+
+  <main style="max-width: 600px; margin: 0 auto; padding: 20px;">
+    <h2>Formulario: Pedido para Recojo</h2>
+    <p style="margin-bottom: 1.5rem;">Cliente activo: <strong id="nombre-usuario-display">Cargando...</strong></p>
+
+    <form id="form-pedido" class="pedido-form-container">
+      <div class="campo-form">
+        <label for="nombre_cliente">Nombre de quien recoge:</label>
+        <input type="text" id="nombre_cliente" required>
+      </div>
+
+      <div class="campo-form">
+        <label for="productos">Productos / Combos seleccionados:</label>
+        <textarea id="productos" rows="4" placeholder="Selecciona productos en el menú o escríbelos aquí" required></textarea>
+      </div>
+
+      <div class="campo-form">
+        <label for="hora_recojo">Hora estimada de recojo:</label>
+        <input type="time" id="hora_recojo" required>
+      </div>
+
+      <button type="submit" id="btn-guardar" class="btn-enviar-pedido">Confirmar Pedido</button>
+    </form>
+
+    <!-- CONFIRMACIÓN ANIMADA CON CÓDIGO DE NEON -->
+    <div id="confirmacion" class="mensaje-exito" style="display: none; background: #e8f5e9; padding: 20px; border-radius: 8px; margin-top: 20px; text-align: center;">
+      ✔ ¡Pedido registrado con éxito en Neon DB!
+      <p style="margin-top: 10px;">Tu código de seguimiento asignado es:</p>
+      <div id="codigo-generado" class="codigo-box" style="font-size: 1.5rem; font-weight: bold; color: #2a9d8f; margin: 10px 0;"></div>
+      <small>Presenta este código en caja al momento de recoger tu pedido.</small>
+      
+      <div style="margin-top: 15px;">
+        <a href="consulta.html" style="display: inline-block; background-color: #003049; color: white; padding: 10px 18px; border-radius: 5px; text-decoration: none; font-weight: bold;">Ver Mis Pedidos</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Crocanti Chicken Perú. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Enlace modular directo al script de registro de pedidos -->
+  <script type="module" src="JS/registro/registro.js"></script>
+</body>
+</html>

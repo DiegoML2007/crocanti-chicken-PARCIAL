@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crocanti Chicken Perú - Acceso</title>
+  <!-- Estilo independiente exclusivo para login.html -->
+  <link rel="stylesheet" href="CSS/login.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h1>Crocanti Chicken</h1>
+    </div>
+    <nav>
+      <a href="index.html">Menú</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="pedido.html">Pedido para Recojo</a>
+      <a href="consulta.html">Mis Pedidos</a>
+      <!-- Enlace dinámico al Panel -->
+      <a href="panel.html" id="nav-panel" style="display: none; background-color: #2a9d8f;" class="btn-nav">⚙️️ Panel Admin</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="login.html" class="btn-nav active">Iniciar Sesión</a>
+    </nav>
+  </header>
+
+  <main class="contenedor-auth">
+    <!-- Formulario de Iniciar Sesión -->
+    <section class="box-auth">
+      <h2>Iniciar Sesión</h2>
+      <form id="form-login">
+        <div class="campo">
+          <label for="login-correo">Correo electrónico:</label>
+          <input type="email" id="login-correo" placeholder="ejemplo@correo.com" required>
+        </div>
+        <div class="campo">
+          <label for="login-pass">Contraseña:</label>
+          <input type="password" id="login-pass" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="btn-primary">Ingresar</button>
+      </form>
+    </section>
+
+    <!-- Formulario de Crear Cuenta -->
+    <section class="box-auth">
+      <h2>Crear Cuenta</h2>
+      <form id="form-registro-usuario">
+        <div class="campo">
+          <label for="reg-nombre">Nombre completo:</label>
+          <input type="text" id="reg-nombre" placeholder="Juan Pérez" required>
+        </div>
+        <div class="campo">
+          <label for="reg-correo">Correo electrónico:</label>
+          <input type="email" id="reg-correo" placeholder="ejemplo@correo.com" required>
+        </div>
+        <div class="campo">
+          <label for="reg-pass">Contraseña:</label>
+          <input type="password" id="reg-pass" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="btn-secondary">Registrarse</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Crocanti Chicken Perú. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Vinculación limpia con el script modular de login -->
+  <script type="module" src="JS/auth/login.js"></script>
+</body>
+</html>

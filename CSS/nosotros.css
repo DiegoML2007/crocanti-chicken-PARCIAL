@@ -1,0 +1,94 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fdfaf6;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* EFECTO 1: Degradado rojo-amarillo */
+header {
+  background: linear-gradient(135deg, #d32f2f 0%, #f39c12 100%);
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.logo { display: flex; align-items: center; gap: 10px; }
+
+/* EFECTO 3: Ícono SVG animado */
+.svg-icono-pollo {
+  width: 38px;
+  height: 38px;
+  fill: #fff;
+  animation: rebotePollo 2s infinite ease-in-out;
+}
+
+@keyframes rebotePollo {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(-5deg); }
+}
+
+/* TRANSICIÓN 3: Color menú */
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 15px;
+  font-weight: bold;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+nav a:hover, nav a.active { background-color: rgba(255, 255, 255, 0.25); }
+
+main {
+  flex: 1;
+  max-width: 900px;
+  width: 90%;
+  margin: 2rem auto;
+}
+
+.seccion-nosotros h2 { color: #d32f2f; margin-bottom: 1rem; }
+
+.grid-nosotros {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* TRANSICIÓN 2 + EFECTO 2: Sombra y elevación */
+.box-nosotros {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  border-left: 5px solid #f39c12;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box-nosotros:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+}
+
+.box-nosotros h3 { color: #d32f2f; margin-bottom: 0.5rem; }
+
+footer {
+  background-color: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: auto;
+}

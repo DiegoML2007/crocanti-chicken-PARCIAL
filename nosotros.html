@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crocanti Chicken Perú - Nosotros</title>
+  <!-- Estilo independiente exclusivo para nosotros.html -->
+  <link rel="stylesheet" href="CSS/nosotros.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h1>🍗 Crocanti Chicken</h1>
+    </div>
+    <nav>
+      <a href="index.html">Menú</a>
+      <a href="nosotros.html" class="active">Nosotros</a>
+      <a href="pedido.html">Pedido para Recojo</a>
+      <a href="consulta.html">Mis Pedidos</a>
+      <!-- Enlace dinámico al Panel Admin -->
+      <a href="panel.html" id="nav-panel" style="display: none; background-color: #2a9d8f;" class="btn-nav">⚙️ Panel Admin</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="login.html" id="nav-login" class="btn-nav">Iniciar Sesión</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="seccion-nosotros">
+      <h2>Sobre Crocanti Chicken Perú</h2>
+      <p>Somos una cadena peruana de comida rápida especializada en brindar el pollo frito y a la brasa más crocante del mercado, elaborado con insumos 100% locales y la mejor receta secreta de la casa.</p>
+      
+      <div class="grid-nosotros">
+        <div class="box-nosotros">
+          <h3>Misión</h3>
+          <p>Ofrecer la mejor experiencia gastronómica rápida, combinando crocantes sabores únicos con una atención ágil, eficiente y moderna.</p>
+        </div>
+        <div class="box-nosotros">
+          <h3>Visión</h3>
+          <p>Ser la cadena líder en pedidos express y comida rápida del país, destacándonos por la innovación digital en la atención al cliente.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Crocanti Chicken Perú. Todos los derechos reservados.</p>
+  </footer>
+
+  <script type="module">
+    const usuarioData = localStorage.getItem('usuario_crocanti') || localStorage.getItem('usuario_activo');
+    if (usuarioData) {
+      const userObj = JSON.parse(usuarioData);
+      const navLogin = document.getElementById('nav-login');
+      
+      if (navLogin) {
+        navLogin.textContent = `Hola, ${userObj.nombre}`;
+        navLogin.href = 'consulta.html';
+      }
+
+      // Mostrar el panel de control si el usuario es administrador o empleado
+      if (userObj.rol === 'administrador' || userObj.rol === 'empleado') {
+        const navPanel = document.getElementById('nav-panel');
+        if (navPanel) navPanel.style.display = 'inline-block';
+      }
+    }
+  </script>
+</body>
+</html>

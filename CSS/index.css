@@ -1,0 +1,181 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fdfaf6;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* EFECTO 1: Degradado rojo-amarillo en el encabezado */
+header {
+  background: linear-gradient(135deg, #d32f2f 0%, #f39c12 100%);
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* EFECTO 3: Ícono SVG de pollo/bolsa animado */
+.svg-icono-pollo {
+  width: 38px;
+  height: 38px;
+  fill: #fff;
+  animation: rebotePollo 2s infinite ease-in-out;
+}
+
+@keyframes rebotePollo {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(-5deg); }
+}
+
+/* TRANSICIÓN 3: Color en las opciones del menú de navegación */
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 15px;
+  font-weight: bold;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav a:hover, nav a.active {
+  background-color: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+.btn-nav { background-color: #27ae60; }
+
+main {
+  flex: 1;
+  max-width: 1100px;
+  width: 90%;
+  margin: 2rem auto;
+}
+
+/* ANIMACIÓN 3: Aparición progresiva del menú por categoría */
+.categoria-seccion {
+  opacity: 0;
+  animation: aparicionProgresiva 0.8s forwards ease-out;
+  margin-bottom: 2.5rem;
+}
+
+.cat-1 { animation-delay: 0.2s; }
+.cat-2 { animation-delay: 0.5s; }
+.cat-3 { animation-delay: 0.8s; }
+
+@keyframes aparicionProgresiva {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.grid-promos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+/* TRANSICIÓN 2 + EFECTO 2: Elevación y Sombra en las tarjetas de combo/producto */
+.card {
+  background: white;
+  border-radius: 10px;
+  padding: 1.2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* EFECTO 2 */
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease; /* TRANSICIÓN 2 */
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ANIMACIÓN 1: Efecto de "vapor"/pulso sobre el producto destacado */
+.card-destacado {
+  border: 2px solid #f39c12;
+}
+
+.card-destacado::before {
+  content: "🔥 DESTACADO";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #d32f2f;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+  z-index: 2;
+}
+
+.vapor-efecto {
+  position: relative;
+}
+
+.vapor-efecto::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 0%, rgba(255,255,255,0) 70%);
+  transform: translateX(-50%);
+  pointer-events: none;
+  animation: pulsoVapor 2s infinite alternate ease-in-out;
+}
+
+@keyframes pulsoVapor {
+  0% { opacity: 0.2; transform: translateX(-50%) scale(0.95); }
+  100% { opacity: 0.8; transform: translateX(-50%) scale(1.08); }
+}
+
+.precio {
+  display: block;
+  margin: 10px 0;
+  font-weight: bold;
+  color: #d32f2f;
+  font-size: 1.3rem;
+}
+
+/* TRANSICIÓN 1: Color en los botones "Agregar" */
+.btn-agregar {
+  background-color: #d32f2f;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.btn-agregar:hover { background-color: #b71c1c; }
+.btn-agregar:active { transform: scale(0.98); }
+
+footer {
+  background-color: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: auto;
+}

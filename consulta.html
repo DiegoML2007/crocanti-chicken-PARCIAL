@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crocanti Chicken Perú - Mis Pedidos</title>
+  <!-- Estilo independiente exclusivo para consulta.html -->
+  <link rel="stylesheet" href="CSS/consulta.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h1>Crocanti Chicken</h1>
+    </div>
+    <nav>
+      <a href="index.html">Menú</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="pedido.html">Pedido para Recojo</a>
+      <a href="consulta.html" class="active">Mis Pedidos</a>
+      <!-- Enlace dinámico al Panel -->
+      <a href="panel.html" id="nav-panel" style="display: none; background-color: #2a9d8f;" class="btn-nav">⚙️ Panel Admin</a>
+      <a href="contacto.html">Contacto</a>
+      <button id="btn-logout" class="btn-logout">Cerrar Sesión</button>
+    </nav>
+  </header>
+
+  <main class="consulta-container">
+    <h2>Mis Pedidos Registrados</h2>
+    <p>Consulta el estado de tus pedidos en tiempo real:</p>
+
+    <!-- Contenedor dinámico donde JS renderizará las tarjetas -->
+    <div id="contenedor-pedidos">
+      <p>Cargando tus pedidos desde la base de datos...</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Crocanti Chicken Perú. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Enlace modular directo al script de consulta -->
+  <script type="module" src="JS/consulta/consulta.js"></script>
+</body>
+</html>

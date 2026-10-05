@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crocanti Chicken Perú - Contacto</title>
+  <!-- Estilo independiente exclusivo para contacto.html -->
+  <link rel="stylesheet" href="CSS/contacto.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h1>🍗 Crocanti Chicken</h1>
+    </div>
+    <nav>
+      <a href="index.html">Menú</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="pedido.html">Pedido para Recojo</a>
+      <a href="consulta.html">Mis Pedidos</a>
+      <!-- Enlace dinámico al Panel Admin -->
+      <a href="panel.html" id="nav-panel" style="display: none; background-color: #2a9d8f;" class="btn-nav">⚙️ Panel Admin</a>
+      <a href="contacto.html" class="active">Contacto</a>
+      <a href="login.html" id="nav-login" class="btn-nav">Iniciar Sesión</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="seccion-contacto">
+      <h2>Contáctanos y Locales</h2>
+      <p>¿Tienes dudas, sugerencias o deseas consultar un evento grande?</p>
+      
+      <div class="info-contacto">
+        <p><strong>📍 Local Principal:</strong> Av. Javier Prado Este 1234, Lima</p>
+        <p><strong>📞 Teléfono:</strong> (01) 555-0192</p>
+        <p><strong>✉️ Correo:</strong> contacto@crocantichicken.pe</p>
+        <p><strong>⏰ Horario de Atención:</strong> Lunes a Domingo de 11:00 am a 10:30 pm</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Crocanti Chicken Perú. Todos los derechos reservados.</p>
+  </footer>
+
+  <script type="module">
+    const usuarioData = localStorage.getItem('usuario_crocanti') || localStorage.getItem('usuario_activo');
+    if (usuarioData) {
+      const userObj = JSON.parse(usuarioData);
+      const navLogin = document.getElementById('nav-login');
+      
+      if (navLogin) {
+        navLogin.textContent = `Hola, ${userObj.nombre}`;
+        navLogin.href = 'consulta.html';
+      }
+
+      // Mostrar el panel de control si el usuario es administrador o empleado
+      if (userObj.rol === 'administrador' || userObj.rol === 'empleado') {
+        const navPanel = document.getElementById('nav-panel');
+        if (navPanel) navPanel.style.display = 'inline-block';
+      }
+    }
+  </script>
+</body>
+</html>

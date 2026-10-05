@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crocanti Chicken Perú - Actualizar Pedido</title>
+  <!-- Estilo exclusivo independiente -->
+  <link rel="stylesheet" href="CSS/actualizar.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h1>🍗 Crocanti Chicken</h1>
+    </div>
+    <nav>
+      <a href="index.html">Menú</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="pedido.html">Pedido para Recojo</a>
+      <a href="consulta.html">Mis Pedidos</a>
+      <!-- Enlace dinámico al Panel -->
+      <a href="panel.html" id="nav-panel" style="display: none; background-color: #2a9d8f;" class="btn-nav">⚙️ Panel Admin</a>
+      <a href="contacto.html">Contacto</a>
+      <button id="btn-logout" class="btn-logout">Cerrar Sesión</button>
+    </nav>
+  </header>
+
+  <main>
+    <div class="contenedor-box">
+      <h2>Modificar Mi Pedido</h2>
+      <p style="margin-bottom: 15px; color: #666; font-size: 0.9rem;">
+        Solo puedes modificar el pedido si aún se encuentra en estado <strong>registrado</strong>.
+      </p>
+
+      <form id="form-actualizar">
+        <input type="hidden" id="pedido-id">
+
+        <div class="campo">
+          <label for="nombre_cliente">Nombre de quien recoge:</label>
+          <input type="text" id="nombre_cliente" required>
+        </div>
+
+        <div class="campo">
+          <label for="productos">Productos / Combos:</label>
+          <textarea id="productos" rows="4" required></textarea>
+        </div>
+
+        <div class="campo">
+          <label for="hora_recojo">Hora estimada de recojo:</label>
+          <input type="time" id="hora_recojo" required>
+        </div>
+
+        <button type="submit" id="btn-guardar-cambios" class="btn-guardar">Guardar Cambios</button>
+        <a href="consulta.html" class="btn-cancelar">Cancelar y Volver</a>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Crocanti Chicken Perú. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Enlace modular directo al script de actualización -->
+  <script type="module" src="JS/actualizar/actualizar.js"></script>
+</body>
+</html>

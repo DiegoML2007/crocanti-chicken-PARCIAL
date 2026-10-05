@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crocanti Chicken Perú - Menú</title>
+  <!-- 1. Estilo independiente exclusivo para index.html -->
+  <link rel="stylesheet" href="CSS/index.css">
+</head>
+<body>
+  <!-- ENCABEZADO CON DEGRADADO Y SVG ANIMADO -->
+  <header>
+    <div class="logo">
+      <svg class="svg-icono-pollo" viewBox="0 0 24 24">
+        <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,4Z"/>
+      </svg>
+      <h1>Crocanti Chicken</h1>
+    </div>
+    <nav>
+      <a href="index.html" class="active">Menú</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="pedido.html">Pedido para Recojo</a>
+      <a href="consulta.html">Mis Pedidos</a>
+      <!-- Enlace dinámico al Panel para Admin / Empleado -->
+      <a href="panel.html" id="nav-panel" style="display: none; background-color: #2a9d8f;" class="btn-nav">⚙ Panel Admin</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="login.html" id="nav-login" class="btn-nav">Iniciar Sesión</a>
+      <button id="btn-logout" class="btn-logout" style="display: none;">Cerrar Sesión</button>
+    </nav>
+  </header>
+
+  <main>
+    <h2 style="text-align: center; margin-bottom: 2rem;">Nuestro Menú Crocanti</h2>
+
+    <!-- CATEGORÍA 1: COMBOS PERSONALES -->
+    <section class="categoria-seccion cat-1">
+      <h3> Categoría 1: Combos Personales</h3>
+      <div class="grid-promos">
+        <div class="card card-destacado vapor-efecto">
+          <img src="img/IMAGEN 1.png" alt="Combo Personal" style="width: 100%; height: 160px; object-fit: cover; border-radius: 6px;">
+          <h4>1/4 Pollo Crocanti + Papas</h4>
+          <p>Pieza de pollo súper crocante con papas fritas y crema especial.</p>
+          <span class="precio">S/ 18.90</span>
+          <button type="button" class="btn-agregar">Agregar al pedido</button>
+        </div>
+        <div class="card">
+          <img src="img/IMAGEN 2.png" alt="Tiras Crocantes" style="width: 100%; height: 160px; object-fit: cover; border-radius: 6px;">
+          <h4>6 Tiras Crocantes</h4>
+          <p>Tiras de pechuga crujiente acompañadas de salsa BBQ.</p>
+          <span class="precio">S/ 16.50</span>
+          <button type="button" class="btn-agregar">Agregar al pedido</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATEGORÍA 2: COMBOS FAMILIARES -->
+    <section class="categoria-seccion cat-2">
+      <h3> Categoría 2: Combos Familiares</h3>
+      <div class="grid-promos">
+        <div class="card">
+          <img src="img/IMAGEN 3.png" alt="Combo Familiar" style="width: 100%; height: 160px; object-fit: cover; border-radius: 6px;">
+          <h4>1 Pollo Entero Crocanti</h4>
+          <p>Pollo entero + Papas familiares + Ensalada + Gaseosa 1.5L.</p>
+          <span class="precio">S/ 59.90</span>
+          <button type="button" class="btn-agregar">Agregar al pedido</button>
+        </div>
+        <div class="card">
+          <img src="img/IMAGEN 4.png" alt="Banquete Crocanti" style="width: 100%; height: 160px; object-fit: cover; border-radius: 6px;">
+          <h4>Banquete Crocanti (1.5 Pollos)</h4>
+          <p>1 y 1/2 Pollo + 6 Tiras + Papas Gigantes + 2 Gaseosas.</p>
+          <span class="precio">S/ 84.90</span>
+          <button type="button" class="btn-agregar">Agregar al pedido</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATEGORÍA 3: COMPLEMENTOS Y BEBIDAS -->
+    <section class="categoria-seccion cat-3">
+      <h3> Categoría 3: Complementos & Bebidas</h3>
+      <div class="grid-promos">
+        <div class="card">
+          <img src="img/IMAGEN 5.png" alt="Tequeños" style="width: 100%; height: 160px; object-fit: cover; border-radius: 6px;">
+          <h4>Porción de Tequeños (8 unid)</h4>
+          <p>Rellenos de queso con crema guacamole.</p>
+          <span class="precio">S/ 12.00</span>
+          <button type="button" class="btn-agregar">Agregar al pedido</button>
+        </div>
+        <div class="card">
+          <img src="img/IMAGEN 6.jpg" alt="Gaseosa" style="width: 100%; height: 160px; object-fit: cover; border-radius: 6px;">
+          <h4>Inca Kola 1.5 L</h4>
+          <p>Helada para compartir.</p>
+          <span class="precio">S/ 9.00</span>
+          <button type="button" class="btn-agregar">Agregar al pedido</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Crocanti Chicken Perú. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    // 1. Verificar sesión con la clave del sistema
+    const usuarioData = localStorage.getItem('usuario_crocanti');
+    
+    if (usuarioData) {
+      const userObj = JSON.parse(usuarioData);
+      const navLogin = document.getElementById('nav-login');
+      const btnLogout = document.getElementById('btn-logout');
+
+      if (navLogin) {
+        navLogin.textContent = `Hola, ${userObj.nombre}`;
+        navLogin.href = 'consulta.html';
+      }
+
+      if (btnLogout) {
+        btnLogout.style.display = 'inline-block';
+        btnLogout.addEventListener('click', () => {
+          localStorage.removeItem('usuario_crocanti');
+          localStorage.removeItem('carrito_crocanti');
+          window.location.href = 'login.html';
+        });
+      }
+
+      // Habilitar enlace al panel para administración y empleados
+      const rol = (userObj.rol || '').toLowerCase();
+      if (rol === 'admin' || rol === 'administrador' || rol === 'empleado') {
+        const navPanel = document.getElementById('nav-panel');
+        if (navPanel) navPanel.style.display = 'inline-block';
+      }
+    }
+
+    // 2. Funcionalidad para botones "Agregar al pedido"
+    const botonesAgregar = document.querySelectorAll('.btn-agregar');
+    
+    botonesAgregar.forEach(boton => {
+      boton.addEventListener('click', (e) => {
+        const card = e.target.closest('.card');
+        const nombreProducto = card.querySelector('h4').textContent;
+        const precioProducto = card.querySelector('.precio').textContent;
+        
+        const itemSeleccionado = `${nombreProducto} (${precioProducto})`;
+
+        let carrito = JSON.parse(localStorage.getItem('carrito_temporal')) || [];
+        carrito.push(itemSeleccionado);
+        
+        localStorage.setItem('carrito_temporal', JSON.stringify(carrito));
+
+        alert(`¡Agregado!: ${itemSeleccionado}`);
+        window.location.href = 'pedido.html';
+      });
+    });
+  </script>
+</body>
+</html>
